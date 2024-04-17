@@ -28,7 +28,7 @@ export default {
 </script>
 
 <template>
-  <table>
+  <table class="login">
     <tr>
       <label>
         <th>ID : </th>
@@ -51,14 +51,14 @@ export default {
 </template>
 
 <style>
-th {
+.login th {
   width: 100px;
   text-align: right;
 }
-.btnRow {
+.login .btnRow {
   text-align: center;
 }
-button {
+.login button {
   width: 150px;
   cursor: pointer;
 }

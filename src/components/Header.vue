@@ -9,6 +9,7 @@ export default {
       this.$emit("move", page);
     },
     doCtrlLogin() {
+      alert("Log out Success");
       this.$emit("doCtrlLogin");
       this.move("Login");
     }
@@ -35,14 +36,12 @@ header {
   flex-direction: row;
   justify-content: space-between;
 }
-.nav {
+header .nav {
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
-.button {
-  display: inline-block;
+header .button {
   padding: 10px;
-  cursor: pointer;
 }
 </style>

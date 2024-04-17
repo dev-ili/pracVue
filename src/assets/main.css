@@ -7,3 +7,7 @@
   font-weight: normal;
 }
 
+.button {
+  display: inline-block;
+  cursor: pointer;
+}

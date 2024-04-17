@@ -27,7 +27,7 @@ export default {
 </script>
 
 <template>
-  <table>
+  <table class="signup">
     <tr>
       <label>
         <th>ID : </th>
@@ -62,14 +62,14 @@ export default {
 </template>
 
 <style>
-th {
+.signup th {
   width: 100px;
   text-align: right;
 }
-.btnRow {
+.signup .btnRow {
   text-align: center;
 }
-button {
+.signup button {
   width: 150px;
 }
 </style>
