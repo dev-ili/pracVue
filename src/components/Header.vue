@@ -1,15 +1,48 @@
-<template>
-    <header>
-        <h3>This is Header</h3>
-    </header>
-</template>
+<script>
+export default {
+  props: [],
+  data() {
+    return {};
+  },
+  methods: {
+    move(page) {
+      this.$emit("move", page);
+    },
+    doCtrlLogin() {
+      this.$emit("doCtrlLogin");
+      this.move("Login");
+    }
+  },
+  mounted() {},
+};
+</script>
 
-<scrip>
-</scrip>
+<template>
+  <header>
+    <div class="nav">
+      <span class="button" v-on:click="move('Welcome')">로고</span>
+      <span class="button" v-on:click="move('Board')">게시판</span>
+    </div>
+    <div class="userSlot">
+      <span class="button userSlot" v-on:click="doCtrlLogin">로그아웃</span>
+    </div>
+  </header>
+</template>
 
 <style>
 header {
-    margin: 10px auto;
-    border: 1px solid #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.nav {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.button {
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
 }
 </style>

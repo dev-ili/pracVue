@@ -8,8 +8,4 @@
 </scrip>
 
 <style>
-footer {
-    margin: 10px auto;
-    border: 1px solid #000;
-}
 </style>

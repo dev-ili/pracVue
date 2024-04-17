@@ -1,42 +1,43 @@
 <script setup>
-import Header from './components/Header.vue'
-import Footer from './components/Footer.vue'
-import Test1 from './components/Test1.vue'
-import Test2 from './components/Test2.vue'
+import Header from "./components/Header.vue";
+import Main from "./components/Main.vue";
+import Footer from "./components/Footer.vue";
 </script>
 
 <script>
 export default {
-  components: {
-    Test1,
-    Test2
-  }, 
+  components: { Header, Main, Footer },
   data() {
     return {
-      currComp: "Test1", 
-    }
-  }, 
+      mainComp: "Welcome",
+      isLogin: false,
+    };
+  },
   methods: {
-    doChangeComp() {
-      switch(this.currComp) {
-        case "Test1":
-          this.currComp = "Test2";
-          break;
-        case "Test2":
-          this.currComp = "Test1";
-          break;
+    move(page) {
+      if(this.isLogin && (page == "Login" || page == "Signup")) {
+        page = "Welcome";
+      } else if(!this.isLogin && !(page == "Login" || page == "Signup")){
+        page = "Login";
       }
+      this.mainComp = page;
+      console.log(this.mainComp);
+    },
+    doCtrlLogin() {
+      this.isLogin = !this.isLogin;
+    }
+  },
+  mounted() {
+    if(!this.isLogin) {
+      this.mainComp = "Login";
     }
   }
-}
+};
 </script>
 
 <template>
-  <Header></Header>
-  <main>
-    <component :is="currComp" class="main"></component>
-    <button v-on:click="doChangeComp">change</button>
-  </main>
+  <Header v-if="isLogin" v-on:move="move" v-on:doCtrlLogin="doCtrlLogin"></Header>
+  <Main v-bind:isLogin="isLogin" v-bind:currComp="mainComp" v-on:move="move" v-on:doCtrlLogin="doCtrlLogin"></Main>
   <Footer></Footer>
 </template>
 

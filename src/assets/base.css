@@ -2,3 +2,8 @@
 * {
   box-sizing: border-box;  
 }
+
+header, main, footer {
+  margin: 10px auto;
+  border: 1px solid #000;
+}
