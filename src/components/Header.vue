@@ -9,9 +9,9 @@ export default {
       this.$emit("move", page);
     },
     doCtrlLogin() {
-      alert("Log out Success");
-      this.$emit("doCtrlLogin");
-      this.move("Login");
+      if(confirm("로그아웃하시겠습니까?")) {
+        this.$emit("doCtrlLogin");
+      }
     }
   },
   mounted() {},
@@ -21,7 +21,7 @@ export default {
 <template>
   <header>
     <div class="nav">
-      <span class="button" v-on:click="move('Welcome')">로고</span>
+      <span class="button" v-on:click="move('Welcome')">Home</span>
       <span class="button" v-on:click="move('Board')">게시판</span>
     </div>
     <div class="userSlot">

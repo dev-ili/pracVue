@@ -6,11 +6,11 @@ export default {
     };
   },
   mounted() {
-    console.log(this.msg);
+    // console.log(this.msg);
   },
 };
 </script>
 
 <template>
-  <h1>hello!! {{ msg }}</h1>
+  <h1>Hello!! {{ msg }}</h1>
 </template>

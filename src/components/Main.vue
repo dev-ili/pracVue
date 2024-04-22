@@ -7,12 +7,12 @@ import Signup from "./main/Signup.vue";
 
 <script>
 export default {
-  props: ["currComp", "isLogin"],
+  props: ["mainComp", "isLogin", "axios"],
   components: {
     Welcome,
     Board,
     Login,
-    Signup,
+    Signup
   },
   data() {
     return {};
@@ -20,19 +20,23 @@ export default {
   methods: {
     move(page) {
       this.$emit("move", page);
-    }, 
-    doCtrlLogin() {
-      this.$emit("doCtrlLogin");
-    }
+    },
+    doCtrlLogin(dto) {
+      this.$emit("doCtrlLogin", dto);
+    },
   },
-  mounted() {
-  }
+  mounted() {},
 };
 </script>
 
 <template>
   <main>
-    <component class="main" :is="currComp" v-on:move="move" v-on:doCtrlLogin="doCtrlLogin"></component>
+    <component
+      :is="mainComp"
+      v-on:move="move"
+      v-on:doCtrlLogin="doCtrlLogin"
+      v-bind:axios="axios">
+    </component>
   </main>
 </template>
 
